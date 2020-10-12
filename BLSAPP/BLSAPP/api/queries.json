@@ -1,0 +1,22 @@
+query GetEvents($deviceId:String){
+    blsEvents(deviceId:$deviceId){
+      deviceId,
+      event,
+      eventtime,
+          latitude,
+      longitude,
+          workerId,
+          workerName
+    }
+  }
+  //Variables
+  {
+    "deviceId":"4"
+  }
+
+  {
+    "query": "query GetEvents($deviceId:String){ blsEvents(deviceId:$deviceId){ deviceId, event, eventtime, latitude, longitude, workerId, workerName } }",
+        "variables": {
+            "deviceId":"4"
+    }
+}

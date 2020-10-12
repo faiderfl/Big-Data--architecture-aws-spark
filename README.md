@@ -25,7 +25,7 @@ Steps.
 
    An example of the complete process is drawn below:
 
-![Process](images\Process.PNG)
+![Process](images/Process.PNG)
 
 
 
@@ -43,7 +43,158 @@ Steps.
 
    e. Fit the "LEGO pieces"
 
-3. Propose of draw of architecture: (This is just one of the many approaches)
+3. **Purpose of draw of architecture:** (This is just one of the many possible approaches)
 
-   ![Architecture](images\Demo architecture.PNG)
+   ![Architecture](images/Demo architecture.PNG)
+
+4. **Demo:**
+
+   Now to implement this architecture in AWS, we could simplify or divide the development process:
+
+   First, we could develop the batch processes because this help to understand the data and the results, after that we could focus the streaming process and finally in the integration of all process.
+
+   
+
+    ![Simplification](images\Simplification.png)
+
+   
+
+   **4.1 Users and credentials:**
+
+   To begin, it's necessary to create an AWS user and credentials, this is the simple way to access cloud services from a remote location, however, the final and correct way suggested is through roles.
+
+   The administrative services to create users is IAM: https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html
+
+   And the easiest way is using the AWS console (web page).
+
+   It's very important to keep save the AWS Access Key ID and the Secret Access Key because it is the way to control your services in cloud.
+
+   ![](images\UserCredentials.png)
+
+   
+
+   
+
+   Optionally we can create a connection between the local computer and the AWS user with AWS CLI: https://aws.amazon.com/cli/
+
+   The command to configure this parameters is: *aws configure*
+
+   
+
+    ![](images\AWSCLI.png)
+
+
+
+​			**4.2. Source:** 
+
+There is a lot of possible sources of the data,  in fact is well-knowing that one of the features of Big Data is the variety of data sources. In the case of 	this demo the source could be IoT sources, however to keep simple the process we will suppose that the data is structured and is stored in [S3 services.](https://aws.amazon.com/es/s3/) 
+
+The file that we use is in the data folder: [Events](data\Events.csv)
+
+ Un example of a possible list of events:
+
+ <u>Regular:</u>
+
+- Time report=1
+- Check In=2
+
+<u>Alerts:</u>
+
+- Worker Fall=3
+- Missed check-In=4
+- No motion=5
+- SOS alert=6
+- High gas alert=7
+- Low gas detected=8
+
+<u>Structure:</u>
+
+- Worker ID
+- Worker Name
+- Event
+- EventTime
+- Latitude
+- Longitude
+
+After store the data in S3 we will have a "folder" as a source.  You need to decide the name and the path of the bucket, folder and file. 
+
+
+
+ ![](images\DataS3.png)
+
+
+
+**4.3 Process and storage**
+
+To process the data we could use many services. In this case we will use Spark and the best services in AWS to use Spark is in [AWS EMR](https://aws.amazon.com/emr/) 
+
+EMR is a service that have internal services running in virtual machines in [EC2](https://aws.amazon.com/es/ec2/). Those services most belong to Big Data environment with Apache licenses like: 
+
+![](images\BigDataServices.png)
+
+To access this services is necessary to create a channel using SSH. To do this connection we have many tools and one of these is [Putty](https://www.putty.org/) using this guide: 
+
+https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-connect-master-node-ssh.html
+
+![](images\EMR.png)
+
+Additional to access some user interfaces in some services in the EMR cluster is necessary configure tunneling through a local proxy following these instructions: https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-connect-master-node-proxy.html
+
+![](images\FoxyProxy.png)
+
+In this demo we just need to read the data from the S3 folder and make some transformation, like filters, however in real enterprise environments Spark is an excellent framework to analyze data in batch or streaming and to create Machine Learning solutions. 
+
+We could divide the information from the source in Events (Records type 1, 2) and Alarms (other cases) and send this to different receptors like tables in a service layer like [DynamoDB](https://aws.amazon.com/dynamodb/).
+
+- We will create two tables: blsEvents, blsAlarms with key: Device_id and sort_key: EventTime. Both tables have the same structure however the records will be different. 
+
+![](images\DynamoDBTables.png)
+
+[However](), to send the data outside the EMR cluster, especially to DynamoDB, we need to create a bridge, a temporal repository in a storage services inside the cluster like Hive. 
+
+![](images\Hive.png)
+
+
+
+To make this filter and send the results we will use the script: [read_csv.py](scripts\read_csv.py)
+
+To do this we can submit a job in spark in two ways:
+
+a. Open a Spark session in the cluster using the next command:  
+
+*pyspark --executor-memory 512m --jars /usr/share/aws/emr/ddb/lib/emr-ddb-hive.jar,/usr/share/aws/emr/ddb/lib/emr-ddb-hadoop.jar*
+
+Next, we can send line by line of the script to obtain the result. 
+
+
+
+b. Submit directly the complete file to spark jobs:
+
+*spark-submit  --deploy-mode cluster --executor-memory 512m --jars /usr/share/aws/emr/ddb/lib/emr-ddb-hive.jar,/usr/share/aws/emr/ddb/lib/emr-ddb-hadoop.jar read_csv.py*
+
+
+
+**4.4. Visualization** 
+
+As result of this operation we could have the information in a service layer and this could be consumed through APIs, as a channel to show the information for instance in a web page. 
+
+An example of an API with GraphQL or REST is in this route. [API](BLSAPP\BLSAPP) . In this case is important to configure the AWS credential, 
+
+An example of a web page consuming the API is in this route. [Web](BLSAPP\BLSWeb) In this case is important to configure the path to the API and Google Maps Credential
+
+
+
+5. **Streaming**
+
+   The real problem could be more complex if we have a source in streaming, due, this kind of process need a continues consumer of the data and a real time processing and storage.
+
+   In this case we can use a Kafka cluster to receive the data and a Spark Streaming process to analyze and transform the data and send to a storage or server layer. 
+
+   In AWS the Kafka services could be configured with EC2 instances,  or we could use a PaaS named Kinesis that is used pretty similar to Kafka.
+
+   A producer to simulate the produce of the data in Kinesis is in the path: [Producer Kinesis](scripts\kinesis Boto.py)
+
+   A consumer of this in Spark Streaming is in the path: [Consumer Kinesis](Scripts\SparkStreaming.py)
+
+   The result will be storage in DynamoDB and could be consumed finally through the same API and webpage.
 

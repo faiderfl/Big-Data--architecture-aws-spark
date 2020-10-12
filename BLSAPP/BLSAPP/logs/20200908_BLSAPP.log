@@ -1,0 +1,45 @@
+[2020-09-08 11:57:16] [INFO ] Inicio API
+[2020-09-08 11:57:19] [INFO ] Endpoint request: BLSAPP 2020-09-08 11:57:19
+[2020-09-08 11:58:02] [INFO ] request: <WSGIRequest: GET '/rest/get_blsEvents'>
+[2020-09-08 11:58:02] [ERROR] Error en carga de payload: Request debe ser tipo POST
+[2020-09-08 11:58:07] [INFO ] request: <WSGIRequest: POST '/rest/get_blsEvents'>
+[2020-09-08 11:58:07] [INFO ] body: b'{\r\n  "data":[{\r\n      "device_id": "1"\r\n      \r\n  }]\r\n}'
+[2020-09-08 11:58:29] [INFO ] request: <WSGIRequest: POST '/rest/get_blsEvents'>
+[2020-09-08 11:58:29] [INFO ] body: b'{\r\n  "data":[{\r\n      "device_id": "1",\r\n      "eventtime":"1"\r\n      \r\n  }]\r\n}'
+[2020-09-08 11:59:15] [INFO ] Inicio API
+[2020-09-08 12:02:11] [INFO ] Inicio API
+[2020-09-08 12:02:16] [INFO ] request: <WSGIRequest: POST '/rest/get_blsEvents'>
+[2020-09-08 12:02:16] [INFO ] body: b'{\r\n  "data":[{\r\n      "device_id": "1",\r\n      "eventtime":"1"\r\n      \r\n  }]\r\n}'
+[2020-09-08 12:03:04] [INFO ] Inicio API
+[2020-09-08 12:03:46] [INFO ] Inicio API
+[2020-09-08 12:03:54] [INFO ] request: <WSGIRequest: POST '/rest/get_blsEvents'>
+[2020-09-08 12:03:54] [INFO ] body: b'{\r\n  "data":[{\r\n      "device_id": "1",\r\n      "eventtime":"1"\r\n      \r\n  }]\r\n}'
+[2020-09-08 12:06:56] [INFO ] Inicio API
+[2020-09-08 12:07:01] [INFO ] request: <WSGIRequest: POST '/rest/get_blsEvents'>
+[2020-09-08 12:07:01] [INFO ] body: b'{\r\n  "data":[{\r\n      "device_id": "1",\r\n      "eventtime":"1"\r\n      \r\n  }]\r\n}'
+[2020-09-08 12:10:48] [INFO ] Inicio API
+[2020-09-08 12:10:51] [INFO ] request: <WSGIRequest: POST '/rest/get_blsEvents'>
+[2020-09-08 12:10:51] [INFO ] body: b'{\r\n  "data":[{\r\n      "device_id": "1",\r\n      "eventtime":"1"\r\n      \r\n  }]\r\n}'
+[2020-09-08 12:11:11] [INFO ] Inicio API
+[2020-09-08 12:11:15] [INFO ] request: <WSGIRequest: POST '/rest/get_blsEvents'>
+[2020-09-08 12:11:15] [INFO ] body: b'{\r\n  "data":[{\r\n      "device_id": "1",\r\n      "eventtime":"1"\r\n      \r\n  }]\r\n}'
+[2020-09-08 12:13:03] [INFO ] Inicio API
+[2020-09-08 12:13:50] [INFO ] request: <WSGIRequest: POST '/rest/get_blsEvents'>
+[2020-09-08 12:13:50] [INFO ] body: b'{\r\n  "data":[{\r\n      "device_id": "1",\r\n      "eventtime":"1"\r\n      \r\n  }]\r\n}'
+[2020-09-08 12:14:58] [INFO ] Inicio API
+[2020-09-08 12:15:01] [INFO ] request: <WSGIRequest: POST '/rest/get_blsEvents'>
+[2020-09-08 12:15:01] [INFO ] body: b'{\r\n  "data":[{\r\n      "device_id": "1",\r\n      "eventtime":"1"\r\n      \r\n  }]\r\n}'
+[2020-09-08 12:15:23] [INFO ] Inicio API
+[2020-09-08 12:15:28] [INFO ] request: <WSGIRequest: POST '/rest/get_blsEvents'>
+[2020-09-08 12:15:28] [INFO ] body: b'{\r\n  "data":[{\r\n      "device_id": "1",\r\n      "eventtime":"1"\r\n      \r\n  }]\r\n}'
+[2020-09-08 12:15:55] [INFO ] Inicio API
+[2020-09-08 12:15:56] [INFO ] request: <WSGIRequest: POST '/rest/get_blsEvents'>
+[2020-09-08 12:15:56] [INFO ] body: b'{\r\n  "data":[{\r\n      "device_id": "1",\r\n      "eventtime":"1"\r\n      \r\n  }]\r\n}'
+[2020-09-08 12:16:48] [INFO ] Inicio API
+[2020-09-08 12:16:50] [INFO ] request: <WSGIRequest: POST '/rest/get_blsEvents'>
+[2020-09-08 12:16:50] [INFO ] body: b'{\r\n  "data":[{\r\n      "device_id": "1",\r\n      "eventtime":"1"\r\n      \r\n  }]\r\n}'
+[2020-09-08 12:16:51] [INFO ] Response: {'meta': {'_requestDateTime': '2020-09-08T12:16:51.372229-05:00', '_responseSize': 0}, 'data': []}
+[2020-09-08 12:17:26] [INFO ] Inicio API
+[2020-09-08 12:17:31] [INFO ] request: <WSGIRequest: POST '/rest/get_blsEvents'>
+[2020-09-08 12:17:31] [INFO ] body: b'{\r\n  "data":[{\r\n      "device_id": "1"\r\n      \r\n  }]\r\n}'
+[2020-09-08 12:17:31] [INFO ] Response: {'meta': {'_requestDateTime': '2020-09-08T12:17:31.757757-05:00', '_responseSize': 7}, 'data': [{'event': '1', 'worker_id': '123', 'longitude': '-114,043629', 'latitude': '51,032086', 'worker_name': 'Faider', 'device_id': '1', 'eventtime': '20200609 09:30:00'}, {'event': '1', 'worker_id': '123', 'longitude': '-114,043629', 'latitude': '51,033086', 'worker_name': 'Faider', 'device_id': '1', 'eventtime': '20200609 09:31:00'}, {'event': '1', 'worker_id': '123', 'longitude': '-114,043629', 'latitude': '51,033086', 'worker_name': 'Faider', 'device_id': '1', 'eventtime': '20200609 09:32:00'}, {'event': '1', 'worker_id': '123', 'longitude': '-114,043629', 'latitude': '51,034086', 'worker_name': 'Faider', 'device_id': '1', 'eventtime': '20200609 09:33:00'}, {'event': '2', 'worker_id': '123', 'longitude': '-114,043629', 'latitude': '51,035086', 'worker_name': 'Faider', 'device_id': '1', 'eventtime': '20200609 09:34:00'}, {'event': '1', 'worker_id': '123', 'longitude': '-114,043629', 'latitude': '51,036086', 'worker_name': 'Faider', 'device_id': '1', 'eventtime': '20200609 09:35:00'}, {'event': '3', 'worker_id': '123', 'longitude': '-114,043629', 'latitude': '51,037086', 'worker_name': 'Faider', 'device_id': '1', 'eventtime': '20200609 09:36:00'}]}
