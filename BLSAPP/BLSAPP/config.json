@@ -1,0 +1,16 @@
+{
+    "aws_access_key_id":"", 
+    "aws_secret_access_key": "",
+    
+    "blsEvents_table" : "blsEvents" ,
+	"blsAlarms_table" : "blsAlarms" ,
+
+    "region" : "us-east-1",
+    "host" : "http://dynamodb.us-east-1.amazonaws.com/<account_number>",
+    "write_capacity_units" : 5,
+    "read_capacity_units" : 5,
+    "tracklogs": false,
+    "rutaLog": "logs/",
+    "logName": "BLSAPP.log"
+
+}

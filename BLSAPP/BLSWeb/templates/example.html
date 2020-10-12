@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+    <html>
+
+    <head>
+            <meta charset="utf-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <title>Business Line Streaming</title>  
+            
+            {{trdmap.js}}
+           
+
+    </head>
+    
+
+    <body>
+        <div class="w3-content">
+          <img src="{{url_for('static', filename='images/Logo.jpg')}}" alt="banner" style="margin-left:25%;width:50%;height:80%;">          
+        </div>
+        <h2 style="text-align: center;font-size:xx-large ; font-family: Arial, Helvetica, sans-serif;"> Events Map</h2>
+        <form action="." method="GET">
+        
+        
+          <label style="text-align: center;font-size:xx-large ; font-family: Arial, Helvetica, sans-serif;">Device: </label>
+          <input type="text" name="Device_Id" id="Device_Id"/><input type="submit" value="load"/>
+        </form>
+
+        <div style="align-items: center;"  >
+          {{trdmap.html}}
+        </div>
+        
+       
+
+    </body>
+</html>
