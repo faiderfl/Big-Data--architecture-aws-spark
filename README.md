@@ -85,7 +85,7 @@ Steps.
 
 
 
-​			**4.2. Source:** 
+4.2 **Source:**
 
 There is a lot of possible sources of the data,  in fact is well-knowing that one of the features of Big Data is the variety of data sources. In the case of 	this demo the source could be IoT sources, however to keep simple the process we will suppose that the data is structured and is stored in [S3 services.](https://aws.amazon.com/es/s3/) 
 
@@ -124,7 +124,7 @@ After store the data in S3 we will have a "folder" as a source.  You need to dec
 
 
 
-**4.3 Process and storage**
+4.3 **Process and storage**
 
 To process the data we could use many services. In this case we will use Spark and the best services in AWS to use Spark is in [AWS EMR](https://aws.amazon.com/emr/) 
 
@@ -174,7 +174,7 @@ b. Submit directly the complete file to spark jobs:
 
 
 
-**4.4. Visualization** 
+4.4 **Visualization** 
 
 As result of this operation we could have the information in a service layer and this could be consumed through APIs, as a channel to show the information for instance in a web page. 
 
@@ -186,15 +186,15 @@ An example of a web page consuming the API is in this route. [Web](BLSAPP/BLSWeb
 
 5. **Streaming**
 
-   The real problem could be more complex if we have a source in streaming, due, this kind of process need a continues consumer of the data and a real time processing and storage.
+The real problem could be more complex if we have a source in streaming, due, this kind of process need a continues consumer of the data and a real time processing and storage.
 
-   In this case we can use a Kafka cluster to receive the data and a Spark Streaming process to analyze and transform the data and send to a storage or server layer. 
+In this case we can use a Kafka cluster to  receive the data and a Spark Streaming process to analyze and transform the data and send to a storage or server layer. 
 
-   In AWS the Kafka services could be configured with EC2 instances,  or we could use a PaaS named Kinesis that is used pretty similar to Kafka.
+In AWS the Kafka services could be configured with EC2 instances,  or we could use a PaaS named Kinesis that is used pretty similar to Kafka.
 
-   A producer to simulate the produce of the data in Kinesis is in the path: [Producer Kinesis](scripts/kinesisBoto.py)
+A producer to simulate the produce of the data in Kinesis is in the path: [Producer Kinesis](scripts/kinesisBoto.py)
 
-   A consumer of this in Spark Streaming is in the path: [Consumer Kinesis](scripts/SparkStreaming.py)
+A consumer of this in Spark Streaming is in the path: [Consumer Kinesis](scripts/SparkStreaming.py)
 
-   The result will be storage in DynamoDB and could be consumed finally through the same API and webpage.
+The result will be storage in DynamoDB and could be consumed finally through the same API and webpage.
 
