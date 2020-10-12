@@ -45,7 +45,7 @@ Steps.
 
 3. **Purpose of draw of architecture:** (This is just one of the many possible approaches)
 
-   ![Architecture](images/Demo architecture.PNG)
+   ![Architecture](images/DemoArchitecture.PNG)
 
 4. **Demo:**
 
@@ -69,7 +69,7 @@ Steps.
 
    It's very important to keep save the AWS Access Key ID and the Secret Access Key because it is the way to control your services in cloud.
 
-   ![](images/UserCredentials.png)
+   ![User](images/UserCredentials.png)
 
    
 
@@ -81,7 +81,7 @@ Steps.
 
    
 
-    ![](images/AWSCLI.png)
+    ![AWSCLI](images/AWSCLI.png)
 
 
 
@@ -120,7 +120,7 @@ After store the data in S3 we will have a "folder" as a source.  You need to dec
 
 
 
- ![](images/DataS3.png)
+ ![S3](images/DataS3.png)
 
 
 
@@ -130,29 +130,29 @@ To process the data we could use many services. In this case we will use Spark a
 
 EMR is a service that have internal services running in virtual machines in [EC2](https://aws.amazon.com/es/ec2/). Those services most belong to Big Data environment with Apache licenses like: 
 
-![](images/BigDataServices.png)
+![BDServices](images/BigDataServices.png)
 
 To access this services is necessary to create a channel using SSH. To do this connection we have many tools and one of these is [Putty](https://www.putty.org/) using this guide: 
 
 https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-connect-master-node-ssh.html
 
-![](images/EMR.png)
+![EMR](images/EMR.png)
 
 Additional to access some user interfaces in some services in the EMR cluster is necessary configure tunneling through a local proxy following these instructions: https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-connect-master-node-proxy.html
 
-![](images/FoxyProxy.png)
+![FoxyProxy](images/FoxyProxy.png)
 
 In this demo we just need to read the data from the S3 folder and make some transformation, like filters, however in real enterprise environments Spark is an excellent framework to analyze data in batch or streaming and to create Machine Learning solutions. 
 
 We could divide the information from the source in Events (Records type 1, 2) and Alarms (other cases) and send this to different receptors like tables in a service layer like [DynamoDB](https://aws.amazon.com/dynamodb/).
 
-- We will create two tables: blsEvents, blsAlarms with key: Device_id and sort_key: EventTime. Both tables have the same structure however the records will be different. 
+We will create two tables: blsEvents, blsAlarms with key: Device_id and sort_key: EventTime. Both tables have the same structure however the records will be different. 
 
-![](images/DynamoDBTables.png)
+![DynamoDB](images/DynamoDBTables.png)
 
-[However](), to send the data outside the EMR cluster, especially to DynamoDB, we need to create a bridge, a temporal repository in a storage services inside the cluster like Hive. 
+However, to send the data outside the EMR cluster, especially to DynamoDB, we need to create a bridge, a temporal repository in a storage services inside the cluster like Hive. 
 
-![](images/Hive.png)
+![Hive](images/Hive.png)
 
 
 
@@ -192,9 +192,9 @@ An example of a web page consuming the API is in this route. [Web](BLSAPP/BLSWeb
 
    In AWS the Kafka services could be configured with EC2 instances,  or we could use a PaaS named Kinesis that is used pretty similar to Kafka.
 
-   A producer to simulate the produce of the data in Kinesis is in the path: [Producer Kinesis](scripts/kinesis Boto.py)
+   A producer to simulate the produce of the data in Kinesis is in the path: [Producer Kinesis](scripts/kinesisBoto.py)
 
-   A consumer of this in Spark Streaming is in the path: [Consumer Kinesis](Scripts/SparkStreaming.py)
+   A consumer of this in Spark Streaming is in the path: [Consumer Kinesis](scripts/SparkStreaming.py)
 
    The result will be storage in DynamoDB and could be consumed finally through the same API and webpage.
 
