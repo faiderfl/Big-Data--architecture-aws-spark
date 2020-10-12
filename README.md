@@ -25,7 +25,7 @@ Steps.
 
    An example of the complete process is drawn below:
 
-![Process](images/Process.PNG)
+![Process](images/Process.png)
 
 
 
@@ -45,7 +45,7 @@ Steps.
 
 3. **Purpose of draw of architecture:** (This is just one of the many possible approaches)
 
-   ![Architecture](images/DemoArchitecture.PNG)
+   ![Architecture](images/DemoArchitecture.png)
 
 4. **Demo:**
 
