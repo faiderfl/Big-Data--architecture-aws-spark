@@ -16,6 +16,12 @@ Putty or other SSH connector: https://www.putty.org/
 
 SFTP connector program such as Cyberduck: https://cyberduck.io/
 
+Updates: There is a webinar of this guide: 
+
+```
+[![Webinar](http://i.imgur.com/Ot5DWAW.png)](https://www.youtube.com/embed/Yw8vVKZ_1FE "Webinar")
+```
+
 Steps.
 
 1. **Understanding the problem:**
