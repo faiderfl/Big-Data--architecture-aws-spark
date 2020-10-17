@@ -16,17 +16,17 @@ Putty or other SSH connector: https://www.putty.org/
 
 SFTP connector program such as Cyberduck: https://cyberduck.io/
 
-Updates: There is a webinar of this guide: 
+**Updates**: This is a video webinar of this guide:
 
-```
-[![Webinar](http://i.imgur.com/Ot5DWAW.png)](https://www.youtube.com/embed/Yw8vVKZ_1FE "Webinar")
-```
+[![Webinar](images/SEIIIS.png)](https://www.youtube.com/embed/Yw8vVKZ_1FE "Webinar")
 
-1. **Understanding the problem:**
 
-   A company works with event monitoring devices that detect certain signals such as gas leaks or signals from a vehicle or any IoT signal or positions of an employee or an object or they can also be confirmations of activities that have been done.
-   This process is carried out in real time but it can also have an alternative process in which it receives all the events in batch to be processed and after being classified, they can be stored together with the events that arrive in real time. The final result can be to be viewed in a web application.
 
+**Understanding the problem:**
+
+1. A company works with event monitoring devices that detect certain signals such as gas leaks or signals from a vehicle or any IoT signal or positions of an employee or an object or they can also be confirmations of activities that have been done.
+This process is carried out in real time but it can also have an alternative process in which it receives all the events in batch to be processed and after being classified, they can be stored together with the events that arrive in real time. The final result can be to be viewed in a web application.
+   
    An example of the complete process is drawn below:
 
 ![Process](images/Process.png)
@@ -89,11 +89,9 @@ Updates: There is a webinar of this guide:
 
 
 
-<<<<<<< HEAD
-4.2 **Source:**
-=======
-​			**4.2. Source:** 
->>>>>>> 2dd1e7fed7af6ec5108106646d51d72126606703
+**4.2. Source:** 
+
+
 
 There is a lot of possible sources of the data,  in fact is well-knowing that one of the features of Big Data is the variety of data sources. In the case of 	this demo the source could be IoT sources, however to keep simple the process we will suppose that the data is structured and is stored in [S3 services.](https://aws.amazon.com/es/s3/) 
 
@@ -132,11 +130,11 @@ After store the data in S3 we will have a "folder" as a source.  You need to dec
 
 
 
-<<<<<<< HEAD
-4.3 **Process and storage**
-=======
+
+
+
+
 **4.3 Process and storage**
->>>>>>> 2dd1e7fed7af6ec5108106646d51d72126606703
 
 To process the data we could use many services. In this case we will use Spark and the best services in AWS to use Spark is in [AWS EMR](https://aws.amazon.com/emr/) 
 
@@ -186,11 +184,7 @@ b. Submit directly the complete file to spark jobs:
 
 
 
-<<<<<<< HEAD
-4.4 **Visualization** 
-=======
 **4.4. Visualization** 
->>>>>>> 2dd1e7fed7af6ec5108106646d51d72126606703
 
 As result of this operation we could have the information in a service layer and this could be consumed through APIs, as a channel to show the information for instance in a web page. 
 
@@ -202,7 +196,7 @@ An example of a web page consuming the API is in this route. [Web](BLSAPP/BLSWeb
 
 5. **Streaming**
 
-<<<<<<< HEAD
+
 The real problem could be more complex if we have a source in streaming, due, this kind of process need a continues consumer of the data and a real time processing and storage.
 
 In this case we can use a Kafka cluster to  receive the data and a Spark Streaming process to analyze and transform the data and send to a storage or server layer. 
@@ -211,20 +205,9 @@ In AWS the Kafka services could be configured with EC2 instances,  or we could u
 
 A producer to simulate the produce of the data in Kinesis is in the path: [Producer Kinesis](scripts/kinesisBoto.py)
 
-A consumer of this in Spark Streaming is in the path: [Consumer Kinesis](scripts/SparkStreaming.py)
+A consumer of this in Spark Streaming is in the path: 
 
-The result will be storage in DynamoDB and could be consumed finally through the same API and webpage.
-=======
-   The real problem could be more complex if we have a source in streaming, due, this kind of process need a continues consumer of the data and a real time processing and storage.
+The result will be storage in DynamoDB and could be consumed finally through the same API and webpage
 
-   In this case we can use a Kafka cluster to receive the data and a Spark Streaming process to analyze and transform the data and send to a storage or server layer. 
 
-   In AWS the Kafka services could be configured with EC2 instances,  or we could use a PaaS named Kinesis that is used pretty similar to Kafka.
-
-   A producer to simulate the produce of the data in Kinesis is in the path: [Producer Kinesis](scripts/kinesisBoto.py)
-
-   A consumer of this in Spark Streaming is in the path: [Consumer Kinesis](scripts/SparkStreaming.py)
-
-   The result will be storage in DynamoDB and could be consumed finally through the same API and webpage.
->>>>>>> 2dd1e7fed7af6ec5108106646d51d72126606703
 
